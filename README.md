@@ -108,10 +108,9 @@ The production problems this scene deliberately does not try to cover —
 multi-size agent clearance, local grid updates, dynamic blockers, movement
 ranges, tactical maps, editor workflow, and broader query scheduling — are part
 of the space behind [PathForge](https://vav-labs.com/products/pathforge/), a
-Godot 4 navigation-intelligence suite in development. The
+Godot 4 navigation-intelligence suite. The
 [playground](https://vav-labs.com/products/pathforge/playground/) is public for
-early examples and validation artifacts. This repository is not PathForge and
-does not depend on it.
+early examples and validation artifacts.
 
 ## Status
 
