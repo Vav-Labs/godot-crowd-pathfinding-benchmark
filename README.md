@@ -9,6 +9,18 @@ It is the runnable proof behind the article
 **[Moving 10,000 agents in Godot without the frame spike](https://vav-labs.com/blog/moving-10000-agents-in-godot/)**.
 Clone it, open it, and reproduce the numbers yourself.
 
+<p align="center">
+  <img
+    src="media/moving-10000-agents-scheduled.gif"
+    alt="10,000 agents moving toward a shared goal with the scheduled shared-field benchmark mode"
+    width="640"
+  >
+</p>
+
+The GIF is a visual capture of the scheduled 10,000-agent stretch. The
+benchmark numbers below come from the native JSON harness output, not from the
+animation.
+
 ## The result
 
 Deterministic native benchmark, 500 moving agents on a 256×256 grid, 5 runs,
