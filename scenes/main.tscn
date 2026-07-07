@@ -1,0 +1,157 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/dynamic_layer.gd" id="2_dynamic"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="HeatmapCells" type="MultiMeshInstance2D" parent="."]
+
+[node name="ClearanceCells" type="MultiMeshInstance2D" parent="."]
+
+[node name="BlockedCellRims" type="MultiMeshInstance2D" parent="."]
+
+[node name="BlockedCells" type="MultiMeshInstance2D" parent="."]
+
+[node name="AgentDensity" type="Sprite2D" parent="."]
+
+[node name="Agents" type="MultiMeshInstance2D" parent="."]
+
+[node name="DynamicLayer" type="Node2D" parent="."]
+script = ExtResource("2_dynamic")
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="ControlPanel" type="PanelContainer" parent="Hud"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 376.0
+offset_bottom = 258.0
+
+[node name="PanelMargin" type="MarginContainer" parent="Hud/ControlPanel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Hud/ControlPanel/PanelMargin"]
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="Hud/ControlPanel/PanelMargin/VBox"]
+text = "Moving 500 Agents"
+theme_override_colors/font_color = Color(0.94, 0.96, 0.98, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="WorkModeRow" type="HBoxContainer" parent="Hud/ControlPanel/PanelMargin/VBox"]
+theme_override_constants/separation = 6
+
+[node name="NaiveButton" type="Button" parent="Hud/ControlPanel/PanelMargin/VBox/WorkModeRow"]
+custom_minimum_size = Vector2(160, 30)
+toggle_mode = true
+text = "Naive"
+
+[node name="ScheduledButton" type="Button" parent="Hud/ControlPanel/PanelMargin/VBox/WorkModeRow"]
+custom_minimum_size = Vector2(160, 30)
+toggle_mode = true
+button_pressed = true
+text = "Scheduled"
+
+[node name="ScenarioRow" type="HBoxContainer" parent="Hud/ControlPanel/PanelMargin/VBox"]
+theme_override_constants/separation = 6
+
+[node name="DemoModeButton" type="Button" parent="Hud/ControlPanel/PanelMargin/VBox/ScenarioRow"]
+custom_minimum_size = Vector2(104, 30)
+toggle_mode = true
+button_pressed = true
+text = "Demo"
+
+[node name="BenchmarkModeButton" type="Button" parent="Hud/ControlPanel/PanelMargin/VBox/ScenarioRow"]
+custom_minimum_size = Vector2(104, 30)
+toggle_mode = true
+text = "Benchmark"
+
+[node name="ResetButton" type="Button" parent="Hud/ControlPanel/PanelMargin/VBox/ScenarioRow"]
+custom_minimum_size = Vector2(104, 30)
+text = "Reset Demo"
+
+[node name="AgentLabel" type="Label" parent="Hud/ControlPanel/PanelMargin/VBox"]
+text = "Agents 500"
+theme_override_colors/font_color = Color(0.84, 0.89, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="AgentSlider" type="HSlider" parent="Hud/ControlPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(330, 22)
+min_value = 100.0
+max_value = 1000.0
+step = 100.0
+value = 500.0
+
+[node name="OverlayRow" type="HBoxContainer" parent="Hud/ControlPanel/PanelMargin/VBox"]
+theme_override_constants/separation = 4
+
+[node name="FieldButton" type="CheckButton" parent="Hud/ControlPanel/PanelMargin/VBox/OverlayRow"]
+button_pressed = true
+text = "Field"
+
+[node name="PathsButton" type="CheckButton" parent="Hud/ControlPanel/PanelMargin/VBox/OverlayRow"]
+button_pressed = true
+text = "Paths"
+
+[node name="BlocksButton" type="CheckButton" parent="Hud/ControlPanel/PanelMargin/VBox/OverlayRow"]
+button_pressed = true
+text = "Blocks"
+
+[node name="DiagnosticRow" type="HBoxContainer" parent="Hud/ControlPanel/PanelMargin/VBox"]
+theme_override_constants/separation = 4
+
+[node name="ClearanceButton" type="CheckButton" parent="Hud/ControlPanel/PanelMargin/VBox/DiagnosticRow"]
+button_pressed = true
+text = "Nav clearance"
+
+[node name="DebugPanel" type="PanelContainer" parent="Hud"]
+custom_minimum_size = Vector2(342, 216)
+offset_left = 926.0
+offset_top = 10.0
+offset_right = 1268.0
+offset_bottom = 226.0
+
+[node name="DebugMargin" type="MarginContainer" parent="Hud/DebugPanel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Hud/DebugPanel/DebugMargin"]
+theme_override_constants/separation = 4
+
+[node name="DebugTitleLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+text = "Debug"
+theme_override_colors/font_color = Color(0.94, 0.96, 0.98, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="DebugStatusLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+text = "Status"
+theme_override_colors/font_color = Color(1, 0.62, 0.77, 0.95)
+theme_override_font_sizes/font_size = 12
+
+[node name="DebugAgentsLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+text = "Agents"
+theme_override_colors/font_color = Color(1, 0.76, 0.29, 0.95)
+theme_override_font_sizes/font_size = 12
+
+[node name="DebugGridLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+text = "Grid"
+theme_override_colors/font_color = Color(0.62, 0.85, 1, 0.88)
+theme_override_font_sizes/font_size = 12
+
+[node name="DebugGoalLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+text = "Goal"
+theme_override_colors/font_color = Color(0.36, 0.91, 0.78, 0.9)
+theme_override_font_sizes/font_size = 12
+
+[node name="DebugNavLabel" type="Label" parent="Hud/DebugPanel/DebugMargin/VBox"]
+custom_minimum_size = Vector2(318, 64)
+text = "Nav"
+theme_override_colors/font_color = Color(0.62, 0.85, 1, 0.88)
+theme_override_font_sizes/font_size = 12

@@ -1,0 +1,20 @@
+# Internal research and planning docs must always stay local.
+Internal-Docs/
+
+# Local Godot/editor/build output.
+.godot/
+.import/
+*.import
+*.translation
+
+# Generated artifacts; publish only after review.
+dist/
+build/
+exports/
+*.zip
+*.log
+*.pid
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
